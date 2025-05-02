@@ -2,9 +2,10 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="format-detection" content="telephone=no">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>#"How do you live"?</title>
-<link rel="icon" href="favicon.png" type="image/png">
+  <title>KIJI defective products</title>
+<link rel="icon" href="defective-not-product_favicon.png" type="image/png">
   <style>
     body {
       margin: 0;
@@ -12,54 +13,92 @@
       background-color: #0d0d0d;
       color: #f0f0f0;
       font-family: 'Helvetica Neue', sans-serif;
+      line-height: 1.6;
     }
 
-    .logo {
-      width: 160px;
-      margin: 2rem auto 0;
-      display: block;
-      opacity: 0.6;
+    #bg-video {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -1;
+      opacity: 0.3;
+      pointer-events: none;
     }
 
     nav {
+      width: 100%;
       text-align: center;
-      margin-top: 1rem;
+      padding: 1.5rem 0;
+      background: transparent;
+      position: sticky;
+      top: 0;
+      z-index: 10;
     }
-
+    nav a:visited {
+  color: #aaa;
+}
     nav a {
-      font-size: 0.85rem;
-      color: #888;
+      margin: 0 1rem;
+      font-size: 0.9rem;
       text-decoration: none;
+      color: #aaa;
+      letter-spacing: 0.05rem;
     }
 
     nav a:hover {
       text-decoration: underline;
     }
 
-    .gallery {
-      max-width: 1000px;
-      margin: 4rem auto;
-      display: flex;
-      flex-direction: column;
-      gap: 2rem;
-      padding: 0 1rem 3rem;
+    header {
+      text-align: center;
+      padding-top: 4rem;
     }
 
-    .gallery img {
-      width: 100%;
-      height: auto;
-      border-radius: 4px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.4);
+    img.logo {
+      width: 200px;
+      max-width: 80%;
+      margin-bottom: 1.5rem;
     }
-.date-stamp {
-  text-align: center;
-  font-size: 0.8rem;
-  color: #777;
-  margin-top: -1rem;
-  margin-bottom: 3rem;
-  opacity: 0.6;
-  font-style: italic;
-}
+
+    h1 {
+      font-size: 1.2rem;
+      font-weight: normal;
+      opacity: 0.8;
+    }
+
+    section {
+      max-width: 700px;
+      margin: 4rem auto;
+      padding: 0 1.5rem;
+      text-align: center;
+    }
+
+    section h2 {
+      font-size: 1rem;
+      font-weight: normal;
+      margin-bottom: 1.2rem;
+      color: #f0f0f0;
+      letter-spacing: 0.1rem;
+      opacity: 0.8;
+    }
+
+    section p, section li {
+      font-size: 0.95rem;
+      color: #c0c0c0;
+    }
+
+    ul.product-list {
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0 0 0;
+    }
+
+    ul.product-list li {
+      margin: 0.5rem 0;
+    }
 
     footer {
       text-align: center;
@@ -67,26 +106,84 @@
       font-size: 0.75rem;
       color: #666;
     }
+
+    footer a {
+      display: block;
+      margin-top: 0.5rem;
+      color: #aaa;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
   </style>
 </head>
 <body>
 
-  <img src="defective-not-product-logo_a.png" alt="Logo" class="logo">
+  <video autoplay loop muted playsinline id="bg-video">
+    <source src="noise-background.mp4" type="video/mp4">
+  </video>
+
   <nav>
-    <a href="index.html">← return</a>
+    <a href="#about">AbouT</a>
+    <a href="#product">ProducT</a>
+    <a href="#event">EvenT</a>
+    <a href="#project">ProjecT</a>
+    <a href="#recruit">RecruiT</a>
   </nav>
 
-  <div class="gallery">
-    <img src="howdoyoulive1.png" alt="hdyl image 1">
-    <img src="howdoyoulive2.png" alt="hdyl image 2">
-    <img src="howdoyoulive3.png" alt="hdyl image 3">
-  </div>
-<p class="date-stamp">Somewhere in May 2025.</p>
-<nav>
-  <a href="index.html">← return</a>
-</nav>
+  <header>
+    <img src="defective-not-product-logo_a.png" alt="Defective ≠ Product Logo" class="logo">
+    <h1>Dedicated to those who cannot even exist in "this corner of the world".</h1>
+  </header>
+
+  <section id="about">
+    <h2>AbouT</h2>
+    <p>
+      We deconstruct meaning and value and attempt to redefine existence.<br>
+      Only complicity in deviance binds us and connects us.<br>
+    </p>
+  </section>
+
+  <section id="product">
+    <h2>ProducT</h2>
+    <p>
+      Below are prototypes in development:
+    </p>
+    <ul class="product-list">
+      <li><a href="hdyl.html">・#"How do you live"?</a></li>
+      <li>・Ξ√∧¬回£‖⌒≒</li>
+      <li>・ぬるっと固まるやつ(The one that hardens smoothly "null")</li>
+      <li>・3742631102</li>
+    </ul>
+  </section>
+
+<section id="event">
+  <h2>EvenT</h2>
+  <ul class="product-list">
+    <li><a href="ark.html">・ark'</a></li>
+  </ul>
+</section>
+
+<section id="project">
+  <h2>ProjecT</h2>
+  <ul class="project-list">
+    <li><a href="cityplanning.html">・city planning</a></li>
+  </ul>
+</section>
+
+  <section id="recruit">
+    <h2>RecruiT</h2>
+    <p>
+      We are currently not hiring.<br>
+    </p>
+  </section>
+
   <footer>
     © 2025 Defective ≠ producT.  
+    <a href="https://x.com/k_jirushi_furyo?s=21&t=m0fONt7gOUEtvi2wFCXPHA">Follow us on X</a>
   </footer>
+
 </body>
 </html>
