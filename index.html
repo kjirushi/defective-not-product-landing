@@ -5,7 +5,6 @@
   <meta name="format-detection" content="telephone=no">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>KIJI defective products</title>
-<link rel="icon" href="defective-not-product_favicon.png" type="image/png">
   <style>
     body {
       margin: 0;
@@ -37,9 +36,7 @@
       top: 0;
       z-index: 10;
     }
-    nav a:visited {
-  color: #aaa;
-}
+
     nav a {
       margin: 0 1rem;
       font-size: 0.9rem;
@@ -50,6 +47,17 @@
 
     nav a:hover {
       text-decoration: underline;
+    }
+
+    a {
+      color: #aaa;
+      text-decoration: underline;
+    }
+
+    a:visited,
+    a:active,
+    a:hover {
+      color: #aaa;
     }
 
     header {
@@ -90,27 +98,18 @@
       color: #c0c0c0;
     }
 
-ul.product-list {
-  list-style: none;
-  padding: 0;
-  margin: 1rem 0 0 0;
-}
+    ul.product-list,
+    ul.project-list {
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0 0 0;
+    }
 
-ul.product-list li {
-  margin: 0.5rem 0;
-  list-style-type: none;
-}
-
-ul.project-list {
-  list-style: none;
-  padding: 0;
-  margin: 1rem 0 0 0;
-}
-
-ul.project-list li {
-  margin: 0.5rem 0;
-  list-style-type: none;
-}
+    ul.product-list li,
+    ul.project-list li {
+      margin: 0.5rem 0;
+      list-style-type: none;
+    }
 
     footer {
       text-align: center;
@@ -128,25 +127,9 @@ ul.project-list li {
     footer a:hover {
       text-decoration: underline;
     }
-
-a {
-  color: #ffffff;
-  text-decoration: underline;
-}
-
-a:visited,
-a:active {
-  color: #aaa;
-}
-
-a:hover {
-  color: #aaa;
-}
-
   </style>
-<script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
 </head>
-
 <body>
 
   <video autoplay loop muted playsinline id="bg-video">
@@ -156,14 +139,14 @@ a:hover {
   <nav>
     <a href="#about">AbouT</a>
     <a href="#product">ProducT</a>
-    <a href="#event">EvenT</a>
     <a href="#project">ProjecT</a>
+    <a href="#event">EvenT</a>
     <a href="#recruit">RecruiT</a>
   </nav>
 
   <header>
     <img src="defective-not-product-logo_a.png" alt="Defective ≠ Product Logo" class="logo">
-    <h1>Dedicated to those who cannot even exist in "this corner of the world".</h1>
+    <h1>Dedicated to those who cannot even exist in "this corner of the world"</h1>
   </header>
 
   <section id="about">
@@ -176,48 +159,43 @@ a:hover {
 
   <section id="product">
     <h2>ProducT</h2>
-    <p>
-      Below are prototypes in development:
-    </p>
+    <p>Below are prototypes in development:</p>
     <ul class="product-list">
-      <li><a href="hdyl.html">・#"How do you live"?</a></li>
-      <li>・Ξ√∧¬回£‖⌒≒</li>
-      <li>・ぬるっと固まるやつ(The one that hardens smoothly "null")</li>
-      <li>・3742631102</li>
+      <li>Ξ√∧¬回£‖⌒≒</li>
+      <li>ぬるっと固まるやつ(The one that hardens smoothly "null")</li>
+      <li>3742631102</li>
     </ul>
   </section>
 
-<section id="event">
-  <h2>EvenT</h2>
-  <ul class="product-list">
-    <li><a href="ark.html">・ark'</a></li>
-  </ul>
-</section>
+  <section id="project">
+    <h2>ProjecT</h2>
 
-<section id="project">
-  <h2>ProjecT</h2>
+    <model-viewer
+      src="Earth_1_12756.glb"
+      alt="Monochrome Earth"
+      auto-rotate
+      camera-controls
+      background-color="#000000"
+      exposure="0.8"
+      shadow-intensity="0"
+      style="width: 100%; max-width: 500px; height: 500px; margin: 2rem auto; display: block; filter: grayscale(100%) contrast(130%) brightness(90%);">
+    </model-viewer>
 
-<model-viewer
-  src="Earth_1_12756.glb"
-  alt="Monochrome Earth"
-  auto-rotate
-  camera-controls
-  background-color="#000000"
-  exposure="0.8"
-  shadow-intensity="0"
-  style="width: 100%; max-width: 500px; height: 500px; margin: 2rem auto; display: block; filter: grayscale(100%) contrast(130%) brightness(90%);">
-</model-viewer>
+    <ul class="project-list">
+      <li><a href="deseltokushima.html">city planning</a></li>
+    </ul>
+  </section>
 
-  <ul class="project-list">
-    <li><a href="deseltokushima.html">・city planning</a></li>
-  </ul>
-</section>
+  <section id="event">
+    <h2>EvenT</h2>
+    <ul class="product-list">
+      <li><a href="ark.html">ark'</a></li>
+    </ul>
+  </section>
 
   <section id="recruit">
     <h2>RecruiT</h2>
-    <p>
-      We are currently not hiring.<br>
-    </p>
+    <p>We are currently not hiring.<br></p>
   </section>
 
   <footer>
