@@ -118,7 +118,11 @@
     }
 
   </style>
+<script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
 </head>
+<nav style="margin-top: 1rem;">
+  <a href="index.html">← return</a>
+</nav>
 <body>
 
   <video autoplay loop muted playsinline id="bg-video">
@@ -168,8 +172,20 @@
 
 <section id="project">
   <h2>ProjecT</h2>
+
+<model-viewer
+  src="Earth_1_12756.glb"
+  alt="Monochrome Earth"
+  auto-rotate
+  camera-controls
+  background-color="#000000"
+  exposure="0.8"
+  shadow-intensity="0"
+  style="width: 100%; max-width: 500px; height: 500px; margin: 2rem auto; display: block; filter: grayscale(100%) contrast(130%) brightness(90%);">
+</model-viewer>
+
   <ul class="project-list">
-    <li><a href="cityplanning.html">・city planning</a></li>
+    <li><a href="deseltokushima.html">・city planning</a></li>
   </ul>
 </section>
 
