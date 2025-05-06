@@ -230,8 +230,13 @@ a:link, a:visited, a:hover, a:active {
   color: #ccc;
   text-decoration: underline;
 }
-</style></head>
+</style><meta content="telephone=no" name="format-detection"/></head>
 <body>
+<video autoplay="" id="bg-video" loop="" muted="" playsinline="" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+         object-fit: cover; z-index: -1; opacity: 0.3; pointer-events: none;">
+<source src="noise-background.mp4" type="video/mp4"/>
+</video>
+
 <nav>
 <a href="#about">AbouT</a>
 <a href="#product">ProducT</a>
@@ -257,7 +262,7 @@ a:link, a:visited, a:hover, a:active {
 <li>・<a href="#how">"How do you live"?</a></li>
 <li>・Ξ√∧¬回£‖⌒≒</li>
 <li>・ぬるっと固まるやつ(The one that hardens smoothly "null")</li>
-<li><span style="user-select: text;">・3742631102</span></li><br/><br/>
+<li><span style="user-select: text; pointer-events: none;">・3742631102</span></li><br/><br/>
 <li>・sound track</li>
 <div class="player-container" id="player">
 <div class="now-playing">
@@ -283,9 +288,6 @@ a:link, a:visited, a:hover, a:active {
 <div amplitude-song-index="1" class="song">Zundaless</div>
 </div>
 </div>
-
-
-
 </ul>
 </section>
 <section id="project">
@@ -307,8 +309,6 @@ a:link, a:visited, a:hover, a:active {
     © 2025 Defective ≠ producT.
     <a href="https://x.com/k_jirushi_furyo?s=21&amp;t=m0fONt7gOUEtvi2wFCXPHA">Follow us on X</a>
 </footer>
-
-
 <script src="https://cdn.jsdelivr.net/npm/amplitudejs@5.3.2/dist/amplitude.min.js"></script><script>
 Amplitude.init({
   songs: [
@@ -343,5 +343,10 @@ document.querySelectorAll(".song").forEach((el, index) => {
     Amplitude.playSongAtIndex(index);
   });
 });
-</script></body>
+</script><script src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js" type="module"></script>
+<section id="how">
+<h2>"How do you live"?</h2>
+<p>※ 準備中</p>
+</section>
+</body>
 </html>
