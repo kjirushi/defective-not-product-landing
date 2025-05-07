@@ -1,0 +1,76 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ConnecT</title>
+  <style>
+    body {
+      margin: 0;
+      background-color: #000;
+      color: #0f0;
+      font-family: monospace;
+      overflow: hidden;
+    }
+    .symbol {
+      position: absolute;
+      font-size: 2rem;
+      cursor: pointer;
+      transition: transform 0.1s;
+    }
+    .noise {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: repeating-linear-gradient(
+        0deg,
+        rgba(255,255,255,0.02),
+        rgba(255,255,255,0.02) 1px,
+        transparent 1px,
+        transparent 2px
+      );
+      pointer-events: none;
+      z-index: 10;
+      mix-blend-mode: difference;
+    }
+  </style>
+</head>
+<body>
+  <div class="noise" id="noise"></div>
+
+  <script>
+    const charset = "!@#$%^&*()_+-=~`<>?/|";
+    const noise = document.getElementById('noise');
+    let destroyed = 0;
+
+    function spawnSymbol() {
+      const sym = document.createElement('div');
+      sym.className = 'symbol';
+      sym.textContent = charset[Math.floor(Math.random() * charset.length)];
+      sym.style.left = Math.random() * window.innerWidth + 'px';
+      sym.style.top = Math.random() * window.innerHeight + 'px';
+      sym.onclick = () => {
+        sym.remove();
+        destroyed++;
+        increaseNoise();
+      };
+      document.body.appendChild(sym);
+    }
+
+    function increaseNoise() {
+      noise.style.background = \`repeating-linear-gradient(
+        0deg,
+        rgba(255,255,255,\${0.02 + destroyed * 0.01}),
+        rgba(255,255,255,\${0.02 + destroyed * 0.01}) 1px,
+        transparent 1px,
+        transparent 2px
+      )\`;
+    }
+
+    setInterval(spawnSymbol, 800);
+  </script>
+</body>
+</html>
