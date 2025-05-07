@@ -388,20 +388,11 @@ const lyrics = [
 ずんだもんなのだ！
 僕の名前は"ずんだもん"`,
 
-`ずんだ無き世界。誰が望んだ世界？願いすらも枝豆ならば`,
+`ずんだ無き世界。誰が望んだ世界？願いすらも枝豆ならば`。,
 
 `僕の声が響く限り、鬼もまたずんだの名を叫ぶ。`
 ];
 
-Amplitude.init({
-  songs: [...],
-  callbacks: {
-    play: function () {
-      const index = Amplitude.getActiveIndex();
-      document.getElementById("lyrics-box").innerText = lyrics[index] || "";
-    }
-  }
-});
         });
       }
     }
