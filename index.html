@@ -1,11 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="format-detection" content="telephone=no">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>KIJI defective products</title>
-  <style>
+<html lang="en"><head>
+<meta charset="utf-8">
+<meta content="telephone=no" name="format-detection">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>KIJI defective products</title>
+<style>
     body {
       margin: 0;
       padding: 0;
@@ -173,112 +171,168 @@
       font-size: 0.75rem;
       color: #999;
     }
-  </style>
+  
+.player-container {
+  background-color: rgba(32, 32, 32, 0.6);
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  margin-top: 1rem;
+  backdrop-filter: blur(4px);
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+}
+
+.player-container h2 {
+  text-align: left;
+  font-size: 0.95rem;
+  margin-bottom: 0.2rem;
+}
+
+.now-playing {
+  display: flex;
+  gap: 0.8rem;
+  align-items: center;
+  margin-bottom: 0.6rem;
+}
+
+.now-playing img {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 6px;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.3);
+}
+
+.caption {
+  font-size: 0.75rem;
+  color: #aaa;
+  line-height: 1.4;
+}
+
+.controls {
+  display: flex;
+  justify-content: center;
+  gap: 0.6rem;
+  margin: 0.5rem 0;
+}
+
+.controls button {
+  background-color: rgba(255, 255, 255, 0.1);
+  border: none;
+  color: #fff;
+  padding: 0.4rem 0.6rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background-color 0.2s ease;
+}
+
+.controls button:hover {
+  background-color: rgba(255, 255, 255, 0.25);
+}
+
+.progress-container {
+  margin: 0.4rem 0;
+}
+
+.time {
+  font-size: 0.7rem;
+  color: #bbb;
+  text-align: center;
+}
+
+.playlist .song {
+  font-size: 0.85rem;
+  text-align: left;
+  margin: 0.2rem 0;
+  cursor: pointer;
+  padding-left: 0.2rem;
+}
+
+.playlist .active {
+  font-weight: bold;
+  color: #fff;
+}
+</style>
 </head>
 <body>
-
-<video autoplay loop muted playsinline id="bg-video">
-  <source src="noise-background.mp4" type="video/mp4">
+<video autoplay="" id="bg-video" loop="" muted="" playsinline="">
+<source src="noise-background.mp4" type="video/mp4">
 </video>
-
 <nav>
-  <a href="#about">AbouT</a>
-  <a href="#product">ProducT</a>
-  <a href="#glint">GlinT</a>
-  <a href="#event">EvenT</a>
-  <a href="#recruit">RecruiT</a>
+<a href="#about">AbouT</a>
+<a href="#product">ProducT</a>
+<a href="#glint">GlinT</a>
+<a href="#project">ProjecT</a>
+<a href="#event">EvenT</a>
 </nav>
-
 <header>
-  <img src="defective-not-product-logo_a.png" alt="Defective ≠ Product Logo" class="logo">
-  <h1>Dedicated to those who cannot even exist in "this corner of the world"</h1>
+<img alt="Defective ≠ Product Logo" class="logo" src="defective-not-product-logo_a.png">
+<h1>Dedicated to those who cannot even exist in "this corner of the world"</h1>
 </header>
-
 <section id="about">
-  <h2>AbouT</h2>
-  <p>
+<h2>AbouT</h2>
+<p>
     We deconstruct meaning and value and attempt to redefine existence.<br>
     Only complicity in deviance binds us and connects us.<br>
-  </p>
+</p>
 </section>
-
 <section id="product">
-  <h2>ProducT</h2>
-  <p>Below are prototypes in development:</p>
-  <ul class="product-list">
-    <li>・<a href="hdyl.html">"How do you live"?</a></li>
-    <li>・Ξ√∧¬回£‖⌒≒</li>
-    <li>・ぬるっと固まるやつ(The one that hardens smoothly "null")</li>
-    <li><span class="no-phone">・3742631102</span></li><br>
-  </p>
-</section>
-
-<section id="glint">
-  <h2>GlinT</h2>
-  <p>sound track</p>
-  <ul class="glint-list">
-  <div class="player-container" id="player">
-    <div class="now-playing">
-      <img data-amplitude-song-info="cover_art_url" />
-      <div class="now-playing-details">
-        <h2 data-amplitude-song-info="name"></h2>
-        <div class="caption" id="track-caption">-</div>
-      </div>
-    </div>
-
-    <div class="controls">
-      <button class="amplitude-prev">＜</button>
-      <button class="amplitude-play-pause">‖▶︎</button>
-      <button class="amplitude-next">＞</button>
-    </div>
-
-    <div class="progress-container">
-      <progress class="amplitude-song-played-progress progress" id="song-progress"></progress>
-    </div>
-
-    <div class="time">
-      <span class="amplitude-current-time">0:00</span> / <span class="amplitude-duration-time">0:00</span>
-    </div>
-
-    <div class="playlist" id="playlist">
-      <div class="song" amplitude-song-index="0">僕はずんだもんなのだ</div>
-      <div class="song" amplitude-song-index="1">Zundaless</div>
-    </div>
-  </div>
-
-<section id="project">
-  <h2>ProjecT</h2>
-  <div id="globe-container">
-    <model-viewer src="Earth_1_12756.glb"
-                  alt="A 3D model of Earth"
-                  auto-rotate
-                  camera-controls
-                  style="width: 100%; height: 300px; margin-top: 20px; display: block; filter: grayscale(100%) brightness(1.3);">
-    </model-viewer>
-  </div>
-
+<h2>ProducT</h2>
+<p>Below are prototypes in development:</p>
 <ul class="product-list">
-    <li>・<a href="deseltokushima.html">city planning</a></li>
-  </ul>
+<li>・<a href="hdyl.html">"How do you live"?</a></li>
+<li>・Ξ√∧¬回£‖⌒≒</li>
+<li>・ぬるっと固まるやつ(The one that hardens smoothly "null")</li>
+<li><span class="no-phone">・3742631102</span></li><br>
+</ul></section>
+<section id="glint">
+<h2>GlinT</h2>
+<p>sound track</p>
+<ul class="glint-list">
+<div class="player-container" id="player">
+<div class="now-playing">
+<img data-amplitude-song-info="cover_art_url" src="track1_art.png">
+<div class="now-playing-details">
+<h2 data-amplitude-song-info="name">僕はずんだもんなのだ</h2>
+<div class="caption" id="track-caption">-</div>
+</div>
+</div>
+<div class="controls">
+<button class="amplitude-prev">＜</button>
+<button class="amplitude-play-pause amplitude-paused">‖▶︎</button>
+<button class="amplitude-next">＞</button>
+</div>
+<div class="progress-container">
+<progress class="amplitude-song-played-progress progress" id="song-progress" value="0"></progress>
+</div>
+<div class="time">
+<span class="amplitude-current-time">00:00</span> / <span class="amplitude-duration-time">01:28</span>
+</div>
+<div class="playlist" id="playlist">
+<div amplitude-song-index="0" class="song">僕はずんだもんなのだ</div>
+<div amplitude-song-index="1" class="song">Zundaless</div>
+</div>
+</div>
+<section id="project">
+<h2>ProjecT</h2>
+<div id="globe-container">
+<model-viewer alt="A 3D model of Earth" auto-rotate="" camera-controls="" src="Earth_1_12756.glb" style="width: 100%; height: 300px; margin-top: 20px; display: block; filter: grayscale(100%) brightness(1.3);" ar-status="not-presenting">
+</model-viewer>
+</div>
+<ul class="product-list">
+<li>・<a href="deseltokushima.html">city planning</a></li>
+</ul>
 </section>
-
 <section id="event">
-  <h2>EvenT</h2>
-    <ul class="product-list">
-      <li>・<a href="ark.html">ark'</a></li>
-    </ul>
-  </section>
-
-<section id="recruit">
-  <h2>RecruiT</h2>
-  <p>We are currently not hiring.<br></p>
-</section>
+<h2>EvenT</h2>
+<ul class="product-list">
+<li>・<a href="ark.html">ark'</a></li>
+</ul>
 
 <footer>
   © 2025 Defective ≠ producT.
-  <a href="https://x.com/k_jirushi_furyo?s=21&t=m0fONt7gOUEtvi2wFCXPHA">Follow us on X</a>
+  <a href="https://x.com/k_jirushi_furyo?s=21&amp;t=m0fONt7gOUEtvi2wFCXPHA">Follow us on X</a>
 </footer>
-
 <script src="https://cdn.jsdelivr.net/npm/amplitudejs@5.3.2/dist/amplitude.min.js"></script>
 <script>
   Amplitude.init({
@@ -316,7 +370,6 @@
     });
   });
 </script>
-
-<script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
-</body>
-</html>
+<script src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js" type="module"></script>
+</ul></section>
+</body></html>
