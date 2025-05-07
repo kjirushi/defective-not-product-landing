@@ -368,35 +368,30 @@
         cover_art_url: "track3_art.png"
       }
     ],
-    callbacks: {
-      play: function () {
-        var activeIndex = Amplitude.getActiveIndex();
-        var caption = [
-          "ずんだもん参上なのだ",
-          "ずんだ無き世界。誰が望んだ世界？願いすらも枝豆ならば",
-          "蒔くか。蒔かれるか。"
-        ];
-        document.getElementById("track-caption").innerText = caption[activeIndex];
-        var songs = document.querySelectorAll(".song");
-        songs.forEach((song, index) => {
-          song.classList.toggle("active", index === activeIndex);
-const lyrics = [
-`僕はずんだ餅（えだまめ）の妖精
-ずんだもんなのだ！
+callbacks: {
+  play: function () {
+    var activeIndex = Amplitude.getActiveIndex();
 
-ずんだ餅（えだまめ）の妖精
-ずんだもんなのだ！
-僕の名前は"ずんだもん"`,
+    var caption = [
+      "ずんだもん参上なのだ",
+      "ずんだ無き世界。誰が望んだ世界？願いすらも枝豆ならば",
+      "蒔くか。蒔かれるか。"
+    ];
+    document.getElementById("track-caption").innerText = caption[activeIndex];
 
-`ずんだ無き世界。誰が望んだ世界？願いすらも枝豆ならば`。,
+    const lyrics = [
+      `僕はずんだ餅（えだまめ）の妖精\nずんだもんなのだ！\n...\n僕の名前は"ずんだもん"`,
+      `ずんだ無き世界。誰が望んだ世界？願いすらも枝豆ならば`,
+      `僕の声が響く限り、鬼もまたずんだの名を叫ぶ。`
+    ];
+    document.getElementById("lyrics-box").innerText = lyrics[activeIndex] || "";
 
-`僕の声が響く限り、鬼もまたずんだの名を叫ぶ。`
-];
-
-        });
-      }
-    }
-  });
+    var songs = document.querySelectorAll(".song");
+    songs.forEach((song, index) => {
+      song.classList.toggle("active", index === activeIndex);
+    });
+  }
+}
 
   Amplitude.getSongs().forEach((song, index) => {
     const audio = new Audio(song.url);
