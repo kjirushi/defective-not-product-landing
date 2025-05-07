@@ -1,9 +1,11 @@
-<html lang="en"><head>
-<meta charset="utf-8"/>
-<meta content="telephone=no" name="format-detection"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>KIJI defective products</title>
-<style>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="format-detection" content="telephone=no" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>KIJI defective products</title>
+  <style>
     body {
       margin: 0;
       padding: 0;
@@ -92,7 +94,129 @@
       list-style-type: none;
     }
 
+    .no-phone {
+      pointer-events: none;
+      user-select: text;
+    }
+
+    a:link, a:visited, a:hover, a:active {
+      color: #ccc;
+      text-decoration: underline;
+    }
+
+    .player-container {
+      background-color: rgba(20, 20, 20, 0.5);
+      padding: 0.75rem 1rem;
+      border-radius: 8px;
+      margin-top: 1rem;
+      backdrop-filter: blur(4px);
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    }
+
+    .player-container h2 {
+      text-align: left;
+      font-size: 0.95rem;
+      margin-bottom: 0.2rem;
+    }
+
+    .now-playing {
+      display: flex;
+      gap: 0.8rem;
+      align-items: center;
+      margin-bottom: 0.6rem;
+    }
+
+    .now-playing img {
+      width: 60px;
+      height: 60px;
+      object-fit: cover;
+      border-radius: 6px;
+      box-shadow: 0 0 6px rgba(0, 0, 0, 0.3);
+    }
+
+    .caption {
+      font-size: 0.75rem;
+      color: #aaa;
+      line-height: 1.4;
+    }
+
+    .controls {
+      display: flex;
+      justify-content: center;
+      gap: 0.6rem;
+      margin: 0.5rem 0;
+    }
+
+    .controls button {
+      background-color: rgba(255, 255, 255, 0.1);
+      border: none;
+      color: #fff;
+      padding: 0.4rem 0.6rem;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 0.9rem;
+    }
+
+    .progress-container {
+      margin: 0.4rem 0;
+    }
+
+    .time {
+      font-size: 0.7rem;
+      color: #bbb;
+      text-align: center;
+    }
+
+    .playlist {
+      padding: 0;
+      margin: 0;
+    }
+
+    .song {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 20px;
+      border-top: 1px solid #333;
+      font-size: 0.95rem;
+      color: #ccc;
+    }
+
+    .track-number {
+      margin-right: 10px;
+    }
+
+    .track-title {
+      flex: 1;
+      text-align: left;
+    }
+
+    .track-duration {
+      min-width: 50px;
+      text-align: right;
+    }
+
+    .song.active {
+      background-color: #333;
+    }
+
+    .amplitude-song-played-progress {
+      width: 100%;
+      height: 5px;
+      background-color: #444;
+    }
+
+    .amplitude-song-played-progress::-webkit-progress-value {
+      background-color: #888;
+    }
+
+    .amplitude-song-played-progress::-moz-progress-bar {
+      background-color: #888;
+    }
+
     footer {
+      max-width: 700px;
+      margin: 0 auto;
       text-align: center;
       padding: 3rem 1rem 2rem;
       font-size: 0.75rem;
@@ -105,298 +229,112 @@
       color: #aaa;
       text-decoration: underline;
     }
-
-    .no-phone {
-      pointer-events: none;
-      user-select: text;
-    }
-
-    a:link, a:visited, a:hover, a:active {
-      color: #ccc;
-      text-decoration: underline;
-    }
-
-    .player-container {
-      background-color: #1a1a1a;
-      padding: 1rem;
-      border-radius: 6px;
-      margin-top: 1rem;
-    }
-
-    .player-container h2 {
-      text-align: left;
-      font-size: 1rem;
-      margin-bottom: 0.2rem;
-    }
-
-    .now-playing {
-      display: flex;
-      gap: 1rem;
-      align-items: center;
-    }
-
-    .now-playing img {
-      width: 64px;
-      height: 64px;
-      object-fit: cover;
-      border-radius: 4px;
-    }
-
-    .caption {
-      font-size: 0.8rem;
-      color: #aaa;
-    }
-
-    .controls {
-      margin: 1rem 0;
-    }
-
-    .progress-container {
-      margin: 0.5rem 0;
-    }
-
-    .playlist .song {
-      font-size: 0.85rem;
-      text-align: left;
-      margin: 0.3rem 0;
-      cursor: pointer;
-    }
-
-    .playlist .active {
-      font-weight: bold;
-      color: #fff;
-    }
-
-    .time {
-      font-size: 0.75rem;
-      color: #999;
-    }
-  
-.player-container {
-  background-color: rgba(32, 32, 32, 0.6);
-  padding: 0.75rem 1rem;
-  border-radius: 8px;
-  margin-top: 1rem;
-  backdrop-filter: blur(4px);
-  box-shadow: 0 0 10px rgba(0,0,0,0.2);
-}
-
-.player-container h2 {
-  text-align: left;
-  font-size: 0.95rem;
-  margin-bottom: 0.2rem;
-}
-
-.now-playing {
-  display: flex;
-  gap: 0.8rem;
-  align-items: center;
-  margin-bottom: 0.6rem;
-}
-
-.now-playing img {
-  width: 60px;
-  height: 60px;
-  object-fit: cover;
-  border-radius: 6px;
-  box-shadow: 0 0 6px rgba(0, 0, 0, 0.3);
-}
-
-.caption {
-  font-size: 0.75rem;
-  color: #aaa;
-  line-height: 1.4;
-}
-
-.controls {
-  display: flex;
-  justify-content: center;
-  gap: 0.6rem;
-  margin: 0.5rem 0;
-}
-
-.controls button {
-  background-color: rgba(255, 255, 255, 0.1);
-  border: none;
-  color: #fff;
-  padding: 0.4rem 0.6rem;
-  border-radius: 4px;
-  cursor: pointer;
-  font-size: 0.9rem;
-  transition: background-color 0.2s ease;
-}
-
-.controls button:hover {
-  background-color: rgba(255, 255, 255, 0.25);
-}
-
-.progress-container {
-  margin: 0.4rem 0;
-}
-
-.time {
-  font-size: 0.7rem;
-  color: #bbb;
-  text-align: center;
-}
-
-.playlist .song {
-  font-size: 0.85rem;
-  text-align: left;
-  margin: 0.2rem 0;
-  cursor: pointer;
-  padding-left: 0.2rem;
-}
-
-.playlist .active {
-  font-weight: bold;
-  color: #fff;
-}
-
-/* グレー進行バー */
-.amplitude-song-played-progress {
-  width: 100%;
-  height: 5px;
-  appearance: none;
-  background-color: #444;
-}
-.amplitude-song-played-progress::-webkit-progress-bar {
-  background-color: #444;
-}
-.amplitude-song-played-progress::-webkit-progress-value {
-  background-color: #888;
-}
-.amplitude-song-played-progress::-moz-progress-bar {
-  background-color: #888;
-}
-
-/* プレイヤー背景もっと暗め */
-.player-container {
-  background-color: rgba(20, 20, 20, 0.5);
-}
-
-.playlist {
-  padding: 0;
-  margin: 0;
-}
-.song {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 12px 20px;
-  border-top: 1px solid #333;
-  font-size: 0.95rem;
-  color: #ccc;
-}
-.track-number {
-  margin-right: 10px;
-}
-.track-title {
-  flex: 1;
-}
-.track-duration {
-  min-width: 50px;
-  text-align: right;
-}
-.song.active {
-  background-color: #333;
-}
-</style>
+  </style>
 </head>
 <body>
-<video autoplay="" id="bg-video" loop="" muted="" playsinline="">
-<source src="noise-background.mp4" type="video/mp4"/>
+
+<video autoplay loop muted playsinline id="bg-video">
+  <source src="noise-background.mp4" type="video/mp4">
 </video>
+
 <nav>
-<a href="#about">AbouT</a>
-<a href="#product">ProducT</a>
-<a href="#glint">GlinT</a>
-<a href="#project">ProjecT</a>
-<a href="#event">EvenT</a>
+  <a href="#about">AbouT</a>
+  <a href="#product">ProducT</a>
+  <a href="#glint">GlinT</a>
+  <a href="#project">ProjecT</a>
+  <a href="#event">EvenT</a>
 </nav>
+
 <header>
-<img alt="Defective ≠ Product Logo" class="logo" src="defective-not-product-logo_a.png"/>
-<h1>Dedicated to those who cannot even exist in "this corner of the world"</h1>
+  <img src="defective-not-product-logo_a.png" alt="Defective ≠ Product Logo" class="logo">
+  <h1>Dedicated to those who cannot even exist in "this corner of the world"</h1>
 </header>
+
 <section id="about">
-<h2>AbouT</h2>
-<p>
-    We deconstruct meaning and value and attempt to redefine existence.<br/>
-    Only complicity in deviance binds us and connects us.<br/>
-</p>
+  <h2>AbouT</h2>
+  <p>
+    We deconstruct meaning and value and attempt to redefine existence.<br>
+    Only complicity in deviance binds us and connects us.<br>
+  </p>
 </section>
+
 <section id="product">
-<h2>ProducT</h2>
-<p>Below are prototypes in development:</p>
-<ul class="product-list">
-<li>・<a href="hdyl.html">"How do you live"?</a></li>
-<li>・Ξ√∧¬回£‖⌒≒</li>
-<li>・ぬるっと固まるやつ(The one that hardens smoothly "null")</li>
-<li><span class="no-phone">・3742631102</span></li><br/>
-</ul></section>
-<section id="glint">
-<h2>GlinT</h2>
-<p>sound track</p>
-<ul class="glint-list">
-<div class="player-container" id="player">
-<div class="now-playing">
-<img data-amplitude-song-info="cover_art_url" src="track1_art.png"/>
-<div class="now-playing-details">
-<h2 data-amplitude-song-info="name">僕はずんだもんなのだ</h2>
-<div class="caption" id="track-caption">-</div>
-</div>
-</div>
-<div class="controls">
-<button class="amplitude-prev">＜</button>
-<button class="amplitude-play-pause amplitude-paused">‖▶︎</button>
-<button class="amplitude-next">＞</button>
-</div>
-<div class="progress-container">
-<progress class="amplitude-song-played-progress progress" id="song-progress" value="0"></progress>
-</div>
-<div class="time">
-<span class="amplitude-current-time">00:00</span> / <span class="amplitude-duration-time">01:28</span>
-</div>
-
-
-<div class="playlist" id="playlist">
-<div amplitude-song-index="0" class="song">
-<span class="track-number">1.</span>
-<span class="track-title">僕はずんだもんなのだ</span>
-<span class="track-duration" id="duration-0">00:00</span>
-</div>
-<div amplitude-song-index="1" class="song">
-<span class="track-number">2.</span>
-<span class="track-title">Zundaless</span>
-<span class="track-duration" id="duration-1">00:00</span>
-</div>
-<div amplitude-song-index="2" class="song">
-<span class="track-number">3.</span>
-<span class="track-title">ZUNDAONI</span>
-<span class="track-duration" id="duration-2">00:00</span>
-</div>
-</div>
-</div>
-<section id="project">
-<h2>ProjecT</h2>
-<div id="globe-container">
-<model-viewer alt="A 3D model of Earth" ar-status="not-presenting" auto-rotate="" camera-controls="" src="Earth_1_12756.glb" style="width: 100%; height: 300px; margin-top: 20px; display: block; filter: grayscale(100%) brightness(1.3);">
-</model-viewer>
-</div>
-<ul class="product-list">
-<li>・<a href="deseltokushima.html">city planning</a></li>
-</ul>
+  <h2>ProducT</h2>
+  <p>Below are prototypes in development:</p>
+  <ul class="product-list">
+    <li>・<a href="hdyl.html">"How do you live"?</a></li>
+    <li>・Ξ√∧¬回£‖⌒≒</li>
+    <li>・ぬるっと固まるやつ(The one that hardens smoothly "null")</li>
+    <li><span class="no-phone">・3742631102</span></li>
+  </ul>
 </section>
+
+<section id="glint">
+  <h2>GlinT</h2>
+  <p>sound track</p>
+  <div class="player-container" id="player">
+    <div class="now-playing">
+      <img data-amplitude-song-info="cover_art_url" src="track1_art.png">
+      <div class="now-playing-details">
+        <h2 data-amplitude-song-info="name">僕はずんだもんなのだ</h2>
+        <div class="caption" id="track-caption">-</div>
+      </div>
+    </div>
+    <div class="controls">
+      <button class="amplitude-prev">＜</button>
+      <button class="amplitude-play-pause amplitude-paused">‖▶︎</button>
+      <button class="amplitude-next">＞</button>
+    </div>
+    <div class="progress-container">
+      <progress class="amplitude-song-played-progress progress" id="song-progress" value="0"></progress>
+    </div>
+    <div class="time">
+      <span class="amplitude-current-time">00:00</span> / <span class="amplitude-duration-time">00:00</span>
+    </div>
+    <div class="playlist" id="playlist">
+      <div amplitude-song-index="0" class="song">
+        <span class="track-number">1.</span>
+        <span class="track-title">僕はずんだもんなのだ</span>
+        <span class="track-duration" id="duration-0">00:00</span>
+      </div>
+      <div amplitude-song-index="1" class="song">
+        <span class="track-number">2.</span>
+        <span class="track-title">Zundaless</span>
+        <span class="track-duration" id="duration-1">00:00</span>
+      </div>
+      <div amplitude-song-index="2" class="song">
+        <span class="track-number">3.</span>
+        <span class="track-title">ZUNDAONI</span>
+        <span class="track-duration" id="duration-2">00:00</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="project">
+  <h2>ProjecT</h2>
+  <div id="globe-container">
+    <model-viewer src="Earth_1_12756.glb" alt="A 3D model of Earth" auto-rotate camera-controls style="width: 100%; height: 300px; margin-top: 20px; display: block; filter: grayscale(100%) brightness(1.3);"></model-viewer>
+  </div>
+  <ul class="product-list">
+    <li>・<a href="deseltokushima.html">city planning</a></li>
+  </ul>
+</section>
+
 <section id="event">
-<h2>EvenT</h2>
-<ul class="product-list">
-<li>・<a href="ark.html">ark'</a></li>
-</ul>
+  <h2>EvenT</h2>
+  <ul class="product-list">
+    <li>・<a href="ark.html">ark'</a></li>
+  </ul>
+</section>
+
 <footer>
   © 2025 Defective ≠ producT.
-  <a href="https://x.com/k_jirushi_furyo?s=21&amp;t=m0fONt7gOUEtvi2wFCXPHA">Follow us on X</a>
+  <a href="https://x.com/k_jirushi_furyo?s=21&t=m0fONt7gOUEtvi2wFCXPHA">Follow us on X</a>
 </footer>
+
 <script src="https://cdn.jsdelivr.net/npm/amplitudejs@5.3.2/dist/amplitude.min.js"></script>
+<script src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js" type="module"></script>
 <script>
   Amplitude.init({
     songs: [
@@ -421,7 +359,8 @@
         var activeIndex = Amplitude.getActiveIndex();
         var caption = [
           "ずんだ無き世界。誰が望んだ世界？願いすらも枝豆ならば",
-          "ずんだ無き世界。誰が望んだ世界？願いすらも枝豆ならば"
+          "ずんだ無き世界。誰が望んだ世界？願いすらも枝豆ならば",
+          "-"
         ];
         document.getElementById("track-caption").innerText = caption[activeIndex];
         var songs = document.querySelectorAll(".song");
@@ -432,22 +371,22 @@
     }
   });
 
+  Amplitude.getSongs().forEach((song, index) => {
+    const audio = new Audio(song.url);
+    audio.addEventListener('loadedmetadata', () => {
+      const duration = audio.duration;
+      const mins = Math.floor(duration / 60);
+      const secs = Math.floor(duration % 60);
+      document.getElementById(`duration-${index}`).innerText = `${mins}:${secs < 10 ? '0' + secs : secs}`;
+    });
+  });
+
   document.querySelectorAll(".song").forEach((el, index) => {
     el.addEventListener("click", () => {
       Amplitude.playSongAtIndex(index);
     });
   });
 </script>
-<script src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js" type="module"></script>
-</section></ul></section>
-<script>
-Amplitude.getSongs().forEach((song, index) => {
-  const audio = new Audio(song.url);
-  audio.addEventListener('loadedmetadata', () => {
-    const duration = audio.duration;
-    const mins = Math.floor(duration / 60);
-    const secs = Math.floor(duration % 60);
-    document.getElementById(`duration-${index}`).innerText = `${mins}:${secs < 10 ? '0' + secs : secs}`;
-  });
-});
-</script></body></html>
+
+</body>
+</html>
