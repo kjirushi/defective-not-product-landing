@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ConnecT | initiate</title>
+  <style>
+    body {
+      margin: 0;
+      background: black;
+      color: #00ffcc;
+      font-family: 'Courier New', monospace;
+      overflow: hidden;
+    }
+    #screen {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      text-align: center;
+    }
+    .code-glow {
+      font-size: 1.2em;
+      animation: flicker 2s infinite alternate;
+      margin: 1rem;
+    }
+    @keyframes flicker {
+      0% { opacity: 0.3; transform: scale(0.98); }
+      100% { opacity: 1; transform: scale(1); }
+    }
+  </style>
+</head>
+<body>
+  <div id="screen">
+    <div class="code-glow">Ξλ::↯∆⊗₧Ξ</div>
+    <div class="code-glow">404...FOUND</div>
+    <div class="code-glow">[[ 接続の試行中 ]]</div>
+  </div>
+</body>
+</html>
