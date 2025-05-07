@@ -284,7 +284,7 @@
       <button class="amplitude-next">＞</button>
     </div>
     <div class="progress-container">
-      <progress class="amplitude-song-played-progress"></progress>
+      <progress class="amplitude-song-played-progress" value="0"></progress>
     </div>
     <div class="time">
       <span class="amplitude-current-time">00:00</span> / <span class="amplitude-duration-time">01:28</span>
@@ -307,6 +307,22 @@
       </div>
     </div>
   </div>
+<!-- 音楽プレイヤーの下 -->
+<div id="lyrics-box" style="
+  max-height: 150px;
+  overflow-y: auto;
+  margin-top: 1rem;
+  padding: 1rem;
+  background-color: rgba(50, 50, 50, 0.3);
+  border-radius: 8px;
+  color: #eee;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  text-align: left;
+  white-space: pre-wrap;
+  backdrop-filter: blur(3px);
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+"></div>
 </section>
 
 <section id="project">
@@ -364,6 +380,28 @@
         var songs = document.querySelectorAll(".song");
         songs.forEach((song, index) => {
           song.classList.toggle("active", index === activeIndex);
+const lyrics = [
+`僕はずんだ餅（えだまめ）の妖精
+ずんだもんなのだ！
+
+ずんだ餅（えだまめ）の妖精
+ずんだもんなのだ！
+僕の名前は"ずんだもん"`,
+
+`ずんだ無き世界。誰が望んだ世界？願いすらも枝豆ならば`,
+
+`僕の声が響く限り、鬼もまたずんだの名を叫ぶ。`
+];
+
+Amplitude.init({
+  songs: [...],
+  callbacks: {
+    play: function () {
+      const index = Amplitude.getActiveIndex();
+      document.getElementById("lyrics-box").innerText = lyrics[index] || "";
+    }
+  }
+});
         });
       }
     }
