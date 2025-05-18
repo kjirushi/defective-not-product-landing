@@ -260,7 +260,16 @@
   <h2>ProducT</h2>
   <p>Below are prototypes in development:</p>
   <ul class="product-list">
-    <li>・<a href="hdyl.html">"How do you live"?</a></li>
+list">
+    <li>・"Raika shimohira." from popular japanese  COMIC "GUNTZ"(©️集英社©️奥浩哉)in the charactor. /li>
+has beautiful woman. and she have very big boobs.
+her's relesed IV in the har like very cutesmile.and bounce titis.this check look must!</li>    
+<li>
+・<a video src=”onameid_raika_04.mp4″ controls></video></a>
+</li>
+
+<li>・<a href="hdyl.html">"How do you live"?</
+a></li>
     <li>・Ξ√∧¬回£‖⌒≒</li>
     <li>・ぬるっと固まるやつ(The one that hardens smoothly "null")</li>
     <li><span class="no-phone">・3742631102</span></li>
@@ -284,7 +293,7 @@
       <button class="amplitude-next">＞</button>
     </div>
     <div class="progress-container">
-      <progress class="amplitude-song-played-progress"></progress>
+      <progress class="amplitude-song-played-progress" value="0"></progress>
     </div>
     <div class="time">
       <span class="amplitude-current-time">00:00</span> / <span class="amplitude-duration-time">01:28</span>
@@ -307,7 +316,26 @@
       </div>
     </div>
   </div>
+<!-- 音楽プレイヤーの下 -->
+<div id="lyrics-box" style="
+  max-height: 150px;
+  overflow-y: auto;
+  margin-top: 1rem;
+  padding: 1rem;
+  background-color: rgba(50, 50, 50, 0.3);
+  border-radius: 8px;
+  color: #eee;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  text-align: left;
+  white-space: pre-wrap;
+  backdrop-filter: blur(3px);
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+"></div>
 </section>
+
+<video width= "864px" height="1200px" preload="none" muted playsinline
+ src="putty idea.mp4" controls loop ></video>
 
 <section id="project">
   <h2>ProjecT</h2>
@@ -352,22 +380,30 @@
         cover_art_url: "track3_art.png"
       }
     ],
-    callbacks: {
-      play: function () {
-        var activeIndex = Amplitude.getActiveIndex();
-        var caption = [
-          "ずんだもん参上なのだ",
-          "ずんだ無き世界。誰が望んだ世界？願いすらも枝豆ならば",
-          "蒔くか。蒔かれるか。"
-        ];
-        document.getElementById("track-caption").innerText = caption[activeIndex];
-        var songs = document.querySelectorAll(".song");
-        songs.forEach((song, index) => {
-          song.classList.toggle("active", index === activeIndex);
-        });
-      }
-    }
-  });
+callbacks: {
+  play: function () {
+    var activeIndex = Amplitude.getActiveIndex();
+
+    var caption = [
+      "ずんだもん参上なのだ",
+      "ずんだ無き世界。誰が望んだ世界？願いすらも枝豆ならば",
+      "蒔くか。蒔かれるか。"
+    ];
+    document.getElementById("track-caption").innerText = caption[activeIndex];
+
+    const lyrics = [
+      `僕はずんだ餅（えだまめ）の妖精\nずんだもんなのだ！\n...\n僕の名前は"ずんだもん"`,
+      `ずんだ無き世界。誰が望んだ世界？願いすらも枝豆ならば`,
+      `僕の声が響く限り、鬼もまたずんだの名を叫ぶ。`
+    ];
+    document.getElementById("lyrics-box").innerText = lyrics[activeIndex] || "";
+
+    var songs = document.querySelectorAll(".song");
+    songs.forEach((song, index) => {
+      song.classList.toggle("active", index === activeIndex);
+    });
+  }
+}
 
   Amplitude.getSongs().forEach((song, index) => {
     const audio = new Audio(song.url);
